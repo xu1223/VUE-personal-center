@@ -1,0 +1,98 @@
+$namespace: 'pers-';
+$namespace1: 'hx-';
+@import './_var.scss';
+//个人中心
+@mixin personalclass($block){
+    $blockName:$namespace+$block !global;
+    .#{$blockName}{
+        @content;
+    }
+}
+//form表单
+@mixin hxclass($block){
+    $blockName:$namespace1+$block !global;
+    .#{$blockName}{
+        @content;
+    }
+}
+/* @desc: 自动居中 ; @author: zhangyunjiang;  @editDate: 2020-12-10 14:36:14 */
+@mixin textCenter(){
+    text-align: $text-center;
+}
+@mixin pointer() {
+    cursor: pointer;
+}
+
+@mixin mAuto {
+    margin:0 auto;
+}
+@mixin fontSize16{
+    font-size: pxto2($px16);
+}
+@mixin fontSize18{
+    font-size: pxto2($px18);
+}
+@mixin fontSize24{
+    font-size: pxto2($px24);
+}
+@mixin fontSize30{
+    font-size: pxto2($px30);
+}
+@mixin fontSize36{
+    font-size: pxto2($px36);
+}
+/**
+* @method
+* @desc: 自动计算单位
+* @author:  zhangyunjiang
+* @creatDate 2020-12-10 14:35:39
+* @param {number}  传入的参数
+*/
+@function pxto2($number) { 
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / $num2;
+    }
+    @return $number;
+}
+@mixin bRadius4 {
+    border-radius: pxto2($px4);
+}
+
+@mixin fontSize16{
+    font-size: pxto2($px16);
+}
+@mixin fontSize18{
+    font-size: pxto2($px18);
+}
+@mixin fontSize20{
+    font-size: pxto2($px20);
+}
+@mixin fontSize24{
+    font-size: pxto2($px24);
+}
+@mixin fontSize30{
+    font-size: pxto2($px30);
+}
+
+@mixin bgColor{
+    background: $block;
+    color:$withe;
+}
+@mixin btnsFn(){
+    width: pxto2(220px);
+    height: pxto2($px60);
+    line-height: pxto2($px60);
+    border: 1px solid #CDCDCD;
+    border-radius:pxto2($px10);
+    padding :0;
+    // padding: 0 pxto2($px20)
+}
+@mixin btnsSubmit(){
+    width: pxto2($px150);
+    height: pxto2($px60);
+    line-height: pxto2($px60);
+    background:$block;
+    border:0;
+    @include bRadius4();
+    margin:0 auto  pxto2($px20);
+}
